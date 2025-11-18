@@ -89,6 +89,9 @@ export default function Navbar() {
             <li className="p-2">
               <Link href="/about">About</Link>
             </li>
+            <li className="p-2">
+              <Link href="/login">Login</Link>
+            </li>
             {user && (
               <li className="p-2">
                 <Link href="/profile">Profile</Link>
@@ -99,20 +102,14 @@ export default function Navbar() {
       </div>
 
       <div className="flex-1 flex justify-center">
-        {!loading && !user ? (
-          <div>
-            <Link href="/login" className="p-2 border rounded bg-gray-100 hover:bg-gray-200">Login / Sign up</Link>
+        {!loading && user ? (
+          <div className="flex items-center gap-4">
+            <p>Welcome, {user.displayName}</p>
+            <button onClick={handleSignOut} className="p-2 border rounded">
+              Sign out
+            </button>
           </div>
-        ) : (
-          !loading && user && (
-            <div className="flex items-center gap-4">
-              <p>Welcome, {user.displayName}</p>
-              <button onClick={handleSignOut} className="p-2 border rounded">
-                Sign out
-              </button>
-            </div>
-          )
-        )}
+        ) : null}
       </div>
 
       <div className="flex-1 flex justify-end" />

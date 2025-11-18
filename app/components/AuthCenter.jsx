@@ -104,7 +104,7 @@ export default function AuthCenter() {
               />
 
               <div className="flex gap-2">
-                <button type="submit" className="flex-1 bg-blue-600 text-white p-2 rounded">
+                <button type="submit" className="flex-1 bg-blue-600 text-black p-2 rounded">
                   {mode === "signup" ? "Sign up" : "Login"}
                 </button>
                 <button type="button" onClick={() => setMode(mode === "signup" ? "login" : "signup")} className="p-2 border rounded text-black">
